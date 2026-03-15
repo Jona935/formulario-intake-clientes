@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { buildEmailHtml } from '@/lib/email-template'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: NextRequest) {
   const data = await request.json()
 
@@ -16,6 +14,8 @@ export async function POST(request: NextRequest) {
     console.error('CONTACT_EMAIL no configurado')
     return NextResponse.json({ error: 'Configuración incompleta' }, { status: 500 })
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
 
   try {
     await resend.emails.send({
