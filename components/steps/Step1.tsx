@@ -11,11 +11,11 @@ const industrias = [
   { emoji: '💻', label: 'Tech' },
   { emoji: '🎨', label: 'Agencia' },
   { emoji: '📚', label: 'Educación' },
-  { emoji: '🏗', label: 'Construcción' },
+  { emoji: '🏗️', label: 'Construcción' },
   { emoji: '✈️', label: 'Turismo' },
   { emoji: '⚖️', label: 'Legal' },
   { emoji: '🏋️', label: 'Fitness' },
-  { emoji: '✦', label: 'Otro' },
+  { emoji: '•••', label: 'Otro' },
 ]
 
 interface Props {

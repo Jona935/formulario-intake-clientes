@@ -1,19 +1,17 @@
 import type { Metadata } from 'next'
-import { Instrument_Serif, DM_Sans } from 'next/font/google'
+import { Sora, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 
-const instrumentSerif = Instrument_Serif({
+const sora = Sora({
   subsets: ['latin'],
-  weight: ['400'],
-  style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-instrument',
+  variable: '--font-sora',
 })
 
-const dmSans = DM_Sans({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-dm',
+  variable: '--font-jakarta',
 })
 
 export const metadata: Metadata = {
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${instrumentSerif.variable} ${dmSans.variable}`}>
+    <html lang="es" className={`${sora.variable} ${jakarta.variable}`}>
       <body className="font-body">{children}</body>
     </html>
   )
