@@ -1,22 +1,30 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Instrument_Serif, DM_Sans } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-instrument',
+})
+
+const dmSans = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-dm',
 })
 
 export const metadata: Metadata = {
-  title: 'Nuevo Proyecto Web — Cuéntanos sobre tu negocio',
-  description: 'Completa el formulario y en 24 horas te enviamos una propuesta para crear tu página web a medida.',
+  title: 'Cuéntanos sobre tu proyecto',
+  description: 'Completa el formulario y recibe tu propuesta en 24 horas.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="font-sans">{children}</body>
+    <html lang="es" className={`${instrumentSerif.variable} ${dmSans.variable}`}>
+      <body className="font-body">{children}</body>
     </html>
   )
 }
