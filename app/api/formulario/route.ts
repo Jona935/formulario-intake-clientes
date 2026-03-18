@@ -5,7 +5,7 @@ import { buildEmailHtml } from '@/lib/email-template'
 export async function POST(request: NextRequest) {
   const data = await request.json()
 
-  if (!data.nombreNegocio || !data.emailContacto) {
+  if (!data.nombreNegocio || !data.email) {
     return NextResponse.json({ error: 'Datos incompletos' }, { status: 400 })
   }
 
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: 'Formulario Web <onboarding@resend.dev>',
       to: contactEmail,
-      reply_to: data.emailContacto,
+      reply_to: data.email,
       subject: `Nuevo proyecto: ${data.nombreNegocio} — ${data.industria || 'Sin industria'}`,
       html: buildEmailHtml(data),
     })
